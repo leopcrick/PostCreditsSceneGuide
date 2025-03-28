@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostCreditSceneGuide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="menu-icon" id="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="logo"><img src="images/logo-removebg-preview.png" alt="Logo do Site"></div>
+    </header>
+    <nav class="menu" id="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div id="restante">
+        <div>
+            <img src="images/poster.jpg" alt="Poster do Filme" id="poster">
+        </div>
+        <div style="background-color: blue;">
+            <h1 id="title">Vingadores: Ultimato</h1>
+            <p>Number of scenes:</p>
+            <p>5 stars</p>
+        </div>
+    </div>
+    
+    <script>
+        function toggleMenu() {
+            let menu = document.getElementById("menu");
+            let icon = document.getElementById("menu-icon");
+            
+            menu.classList.toggle("show-menu");
+            if (menu.classList.contains("show-menu")) {
+                icon.innerHTML = "&#10006;"; // Ícone de fechar (X)
+            } else {
+                icon.innerHTML = "&#9776;"; // Ícone de menu (≡)
+            }
+        }
+    </script>
+</body>
+</html>
