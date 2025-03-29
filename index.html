@@ -8,37 +8,38 @@
 </head>
 <body>
     <header class="header">
-        <div class="menu-icon" id="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu-icon" id="menu-icon">&#9776;</div>
         <div class="logo"><img src="images/logo-removebg-preview.png" alt="Logo do Site"></div>
     </header>
     <nav class="menu" id="menu">
         <a href="#">Home</a>
-        <a href="#">About</a>
+        <a href="#">Profile</a>
+        <a href="#">Dark / Light</a>
         <a href="#">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Logout</a>
     </nav>
-    <div id="restante">
-        <div>
-            <img src="images/poster.jpg" alt="Poster do Filme" id="poster">
-        </div>
-        <div style="background-color: blue;">
+    <div class="overlay blackBackGround" id="overlay"></div>
+    <div id="sup">
+        <img src="images/poster.jpg" alt="Poster do Filme" id="poster">
+        <div id="infos">
             <h1 id="title">Vingadores: Ultimato</h1>
-            <p>Number of scenes:</p>
-            <p>5 stars</p>
+            <p id="year">2018</p>
+            <h2>Number of scenes:</h2>
+            <p id="scenes">5</p>
+            <br>
+            <h2>Score:</h2>
+            <p id="score">5</p>
         </div>
     </div>
-    
-    <script>
-        function toggleMenu() {
-            let menu = document.getElementById("menu");
-            let icon = document.getElementById("menu-icon");
-            
-            menu.classList.toggle("show-menu");
-            if (menu.classList.contains("show-menu")) {
-                icon.innerHTML = "&#10006;"; // Ícone de fechar (X)
-            } else {
-                icon.innerHTML = "&#9776;"; // Ícone de menu (≡)
-            }
-        }
-    </script>
+    <div>
+        <h2 id="antispoiler">Show Description</h2>
+        <pre id="description">Vingadores: Ultimato não tem cena pós-créditos. No entanto, o final do filme deixa pistas sobre o futuro do Universo Cinematográfico da Marvel. 
+        Explicação
+        Vingadores: Ultimato termina com o logo da Marvel e um som de Tony Stark trabalhando em sua armadura. Esse som sugere que o estúdio está trabalhando em novos filmes. 
+        A cena final do filme é emocionante, pois os heróis que foram suprimidos por Thanos retornam à vida e se juntam ao Capitão América na batalha final. 
+        Kevin Feige, chefe do MCU, decidiu deletar a cena pós-crédito para evitar confusões com a minissérie WandaVision. Paul Bettany, que interpreta o personagem Visão, revelou que a cena deletada mostraria o seu personagem morto em um necrotério. </pre>
+    </div>
+    <script src="ambiente.js"></script>
 </body>
 </html>

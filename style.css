@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+
+
+/*INFORMAÇÕES GERAIS -----------------------------------------------*/
 :root {
     --cor1: #131B26;
     --cor2: #373B40;
@@ -16,12 +19,16 @@
 
 
 body {
+    overflow-y: scroll;
     font-family: Arial, sans-serif;
-    font-size: small;
+    font-size: medium;
     background-color: var(--cor1);
     color: white;
 }
 
+
+
+/*CABEÇALHO -------------------------------------------------------*/
 .header {
     display: flex;
     justify-content: space-between;
@@ -30,42 +37,65 @@ body {
     color: white;
     padding: 15px;
     position: relative;
-    z-index: 1100;
+    z-index: 3;
 }
 
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
-    background-color: black;
-    z-index: 1101;
-    position: relative;
-    display: block; /* Garante que o ícone sempre apareça */
+    z-index: 4;
 }
 
 .logo {
-    font-size: 20px;
-    font-weight: bold;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 .logo>img{
-    height: 50px;
+    height: 45px;
 }
 
+
+
+/*MENU À ESQUERDA ------------------------------------------------*/
 .menu {
-    display: none;
+    transition: .4s;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -70%;
     width: 70%;
     height: 100vh;
     background-color: var(--cor2);
     text-align: left;
     padding-top: 60px;
-    z-index: 1000;
+    z-index: 2;
+} 
+.show-menu {
+    left: 0;
+    transition: .4s;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1; /* Um abaixo do menu */
+    opacity: 0; /* Inicia invisível */
+    transition: opacity 0.4s ease, background-color 0.4s ease;
+    pointer-events: none; /* Desativa cliques quando invisível */
+}
+.overlay.active {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.9);
+    pointer-events: auto; /* Habilita cliques quando visível */
+}
+
+
+
+/*BOTÕES DO MENU ---------------------------------------------*/ 
 .menu a {
     display: block;
     padding: 15px;
@@ -73,26 +103,68 @@ body {
     text-decoration: none;
     font-size: 18px;
 }
-
 .menu a:hover {
     background-color: var(--cor3);
 }
-
-.show-menu {
-    display: block;
+.menu a:active{
+    background-color: var(--cor4);
+    color: var(--cor2);
+    transition: 0.1s;
 }
 
-#restante{
-    /* padding: 20px; */
+
+
+
+/*CONTEÚDO DAS INFORMAÇÕES -----------------------------------------*/
+#sup{
     display: flex;
 }
 
-#poster {
-    width: 40%;
-    padding-top: 20px;
-    padding-left: 20px;
+#infos{
+    padding: 30px 30px 0px 20px;
 }
 
-#title{
-    padding: 20px;
+#poster {
+    width: 200px;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+#year{
+    padding-bottom: 30px;
+}
+p#scenes{
+    padding-bottom: 20px;
+}
+
+
+
+
+/*CONTEÚDO DE COMENTÁRIOS ------------------------------------------------*/ 
+#antispoiler{
+    padding: 10px;
+    margin: 50px auto;
+    width: 50%;
+    text-align: center;
+    border: 2px solid var(--cor2);
+    border-radius: 10px;
+    cursor: pointer;
+}
+#antispoiler:hover {
+    background-color: var(--cor2);
+    border: 2px solid var(--cor3);
+}
+#antispoiler:active{
+    background-color: var(--cor3);
+    border: 2px solid var(--cor4);
+}
+
+#description{
+    background-color: blue;
+    display: none;
+    padding: 0px 30px;
+    margin: auto;
+    font-family: inherit; /* Herda a fonte do pai */
+    font-size: 18px;
+    white-space: pre-line; /* Só mantém quebras, não espaços extras */
 }
