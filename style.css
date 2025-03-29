@@ -1,65 +1,103 @@
 @charset "UTF-8";
 
-
-
-/*INFORMAÇÕES GERAIS -----------------------------------------------*/
+/*GENERAL INFO -----------------------------------------------------*/
 :root {
-    --cor1: #131B26;
-    --cor2: #373B40;
-    --cor3: #A69B97;
-    --cor4: #BFB6B0;
-    --cor5: #D9D0C7;
+    --cor1: #001a1a;
+    --cor2: #003333;
+    --cor3: #006666;
+    --cor4: #ffcc00;
+    --cor5: #e8f2f2;
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
 body {
     overflow-y: scroll;
     font-family: Arial, sans-serif;
-    font-size: medium;
+    font-size: small;
     background-color: var(--cor1);
     color: white;
+    width: 100%;
 }
-
+.material-icons{
+    font-size: 18px !important;
+    vertical-align: middle; /* Alinha o ícone com o texto */
+}
 
 
 /*CABEÇALHO -------------------------------------------------------*/
 .header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px;
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    color: white;
-    padding: 15px;
+    padding: 10px;
     position: relative;
     z-index: 3;
+    height: 50px;
+}
+#header_right{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+#header_left{
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
 }
 
-.menu-icon {
-    font-size: 24px;
+
+
+/*ÍCONES DE MENU -------------------------------------------------*/
+.menu_icon {
     cursor: pointer;
     z-index: 4;
 }
-
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.logo>img{
-    height: 45px;
+#closeSymbol{
+    display: none;
 }
 
 
-
+/*LOGO  -- TROCAR POR IMAGEM POSTERIORMENTE ------------------------*/
+.logo{
+    color: black;
+    background-color: var(--cor4);
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+/*SEARCH -----------------------------------------------------------*/
+#header_left > div > form{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+#isearch{
+    width: 100%;
+    padding: 3px;
+    border-radius: 5px;
+    outline: none;
+}
+/*SÍMBOLO LOGIN ----------------------------------------------------*/
+#login, #downloadApp{
+    padding: 5px 10px 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#login:hover, #downloadApp:hover{
+    background-color: var(--cor2);
+    transition: .3s;
+}
 /*MENU À ESQUERDA ------------------------------------------------*/
 .menu {
-    transition: .4s;
+    transition: .3s;
     position: fixed;
     top: 0;
     left: -70%;
@@ -67,12 +105,12 @@ body {
     height: 100vh;
     background-color: var(--cor2);
     text-align: left;
-    padding-top: 60px;
+    padding-top: 50px;
     z-index: 2;
 } 
 .show-menu {
     left: 0;
-    transition: .4s;
+    transition: .3s;
 }
 
 .overlay {
@@ -84,7 +122,7 @@ body {
     background-color: rgba(0, 0, 0, 0);
     z-index: 1; /* Um abaixo do menu */
     opacity: 0; /* Inicia invisível */
-    transition: opacity 0.4s ease, background-color 0.4s ease;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
     pointer-events: none; /* Desativa cliques quando invisível */
 }
 .overlay.active {
@@ -94,14 +132,13 @@ body {
 }
 
 
-
-/*BOTÕES DO MENU ---------------------------------------------*/ 
+/*BOTÕES DO MENU ---------------------------------------------------*/ 
 .menu a {
     display: block;
     padding: 15px;
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
 }
 .menu a:hover {
     background-color: var(--cor3);
@@ -121,13 +158,13 @@ body {
 }
 
 #infos{
-    padding: 30px 30px 0px 20px;
+    padding: 20px 20px 0px 20px;
 }
 
 #poster {
-    width: 200px;
-    padding-top: 30px;
-    padding-left: 30px;
+    width: 180px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 #year{
@@ -138,33 +175,86 @@ p#scenes{
 }
 
 
-
-
-/*CONTEÚDO DE COMENTÁRIOS ------------------------------------------------*/ 
+/*BOTÃO ANTISPOILER ------------------------------------------------*/ 
 #antispoiler{
     padding: 10px;
     margin: 50px auto;
-    width: 50%;
+    width: 45%;
     text-align: center;
     border: 2px solid var(--cor2);
     border-radius: 10px;
     cursor: pointer;
+    font-size: 18px;
 }
 #antispoiler:hover {
     background-color: var(--cor2);
     border: 2px solid var(--cor3);
 }
 #antispoiler:active{
-    background-color: var(--cor3);
-    border: 2px solid var(--cor4);
+    background-color: var(--cor4);
+    border: 2px solid var(--cor2);
+    color: var(--cor1);
 }
 
-#description{
-    background-color: blue;
+
+/*CAMPO DOS COMENTÁRIOS --------------------------------------------*/
+#div_description {
     display: none;
-    padding: 0px 30px;
-    margin: auto;
+    margin: 0px 20px;
     font-family: inherit; /* Herda a fonte do pai */
-    font-size: 18px;
-    white-space: pre-line; /* Só mantém quebras, não espaços extras */
+    font-size: 15px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+#div_description > hr {
+    margin: 0px 0px 20px 0px;
+}
+
+/*CAMPO DOS COMENTÁRIOS --------------------------------------------*/
+#profilePicture{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 0px 10px 0px 0px;
+}
+.comments{
+    display: flex;
+    margin-bottom: 25px;
+}
+.comments > div{
+    border-radius: 10px;
+    background-color: var(--cor2);
+    padding: 10px 15px;
+}
+#description {
+    margin: 10px 0px;
+    white-space: pre-line;
+    line-height: 1.2;           /*Ajuda para ler*/
+    font-family: inherit;         /* Mantém a fonte do site */
+}
+.username{
+    text-decoration: underline;
+}
+
+/*BOTÕES DE LIKE DE DISLIKE --------------------------------------*/
+.likesCount, .dislikesCount{
+    margin-right: 25px;
+}
+.thumb_up, .thumb_down{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+.thumb_up:hover, .thumb_down:hover{
+    background-color: var(--cor3);
+}
+.thumb_up:active, .thumb_down:active{
+    background-color: var(--cor4);
+    color: var(--cor1);
+}
+.liked{
+    color: var(--cor4) !important;
+}
+.disliked{
+    color: red !important;
 }
