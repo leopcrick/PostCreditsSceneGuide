@@ -1,4 +1,4 @@
-//ABRIR E FECHAR DO MENU ---------------------------------------------
+//ABRIR E FECHAR DO MENU ----------------------------------------------------
 let menu_icon = document.getElementById("menu_icon")
 menu_icon.addEventListener("click", (evt)=>{
     changeMenuView()
@@ -23,7 +23,8 @@ function changeMenuView(){
 }
 
 
-//ABRIR E FECHAR DESCRIÇÃO -------------------------------------------
+
+//ABRIR E FECHAR DESCRIÇÃO DA CENA ---------------------------------------
 let antispoiler = document.getElementById("antispoiler")
 antispoiler.addEventListener("click", (evt)=>{
     let description = document.getElementById("div_description")
@@ -38,14 +39,28 @@ antispoiler.addEventListener("click", (evt)=>{
 })
 
 
-//FAZER INDENTAÇÃO NO PARÁGRAFO DE DESCRIÇÃO -------------------------
-const descriptionElement = document.getElementById('description');
+
+//EXPANSÃO DA BARRA DE PESQUISA AO PESQUISAR -----------------------------
+const searchInput = document.getElementById('isearch')
+const header = document.querySelector('.header')
+searchInput.addEventListener('focus', () => {
+    header.classList.add('search-expanded')
+})
+searchInput.addEventListener('blur', () => {
+    header.classList.remove('search-expanded')
+})
+
+
+
+//FAZER INDENTAÇÃO NO PARÁGRAFO DE DESCRIÇÃO ----------------------------
+const descriptionElement = document.getElementById('description')
 const originalText = descriptionElement.textContent;
-const cleanedText = originalText.replace(/^ +/gm, ''); 
+const cleanedText = originalText.replace(/^ +/gm, '');
 descriptionElement.textContent = cleanedText;
 
 
-//LIKE E DISLIKE -----------------------------------------------------
+
+//LIKE E DISLIKE --------------------------------------------------------
 let thumbs_up = document.querySelectorAll(".thumb_up")
 thumbs_up.forEach(thumb_up =>{
     thumb_up.addEventListener("click", (evt)=>{
