@@ -27,7 +27,7 @@ body {
 }
 
 
-/*CABEÇALHO -------------------------------------------------------*/
+/*HEADER ----------------------------------------------------------*/
 .header {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -53,7 +53,7 @@ body {
 }
 
 
-/*ÍCONES DE MENU -------------------------------------------------*/
+/*ÍCONES DE MENU --------------------------------------------------------*/
 .menu_icon {
     cursor: pointer;
     z-index: 4;
@@ -64,7 +64,7 @@ body {
 }
 
 
-/*LOGO  -- TROCAR POR IMAGEM POSTERIORMENTE ------------------------*/
+/*LOGO  -- TROCAR POR IMAGEM POSTERIORMENTE -----------------------------*/
 #logo{
     color: black;
     background-color: var(--cor4);
@@ -170,4 +170,42 @@ body {
     background-color: var(--cor4);
     color: var(--cor2);
     transition: 0s;
+}
+
+
+
+/*FOOTER -----------------------------------------------------------*/
+footer {
+    background-color: black;
+    padding: 10px;
+}
+.footer-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: top;
+    padding: 10px;
+    position: relative;
+
+}
+.footer-bottom > p{
+    text-align: center;
+    margin-top: 5px;
+}
+footer li {
+    list-style-type: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--cor3);
+}
+footer a:hover {
+    text-decoration: underline;
+    color: white;
+}
+footer button{
+    cursor: pointer;
+    margin-top: 5px;
 }
