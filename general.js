@@ -25,7 +25,7 @@ function changeMenuView(){
 
 //EXPANSÃO DA BARRA DE PESQUISA AO PESQUISAR --------------------------------
 const searchInput = document.getElementById('isearch')
-const header = document.querySelector('.header')
+const header = document.querySelector('header')
 searchInput.addEventListener('focus', () => {
     header.classList.add('search-expanded')
 })

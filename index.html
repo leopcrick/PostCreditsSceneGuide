@@ -6,13 +6,14 @@
         <title>PCSGuide</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="style_home.css">
+        <link rel="stylesheet" href="style_searchMovies.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
-    <div class="overlay blackBackGround" id="overlay"></div>
+    <div id="searchResults"></div>
     <!---------------------------------------- HEADER ----------------------------------------->
-    <header class="header">
-        <div id="header_left">
+    <header>
+        <nav id="header_left">
             <div class="menu_icon" id="menu_icon">
                 <span class="material-icons" id="menuSymbol">menu</span>
                 <span class="material-icons" id="closeSymbol">close</span>
@@ -22,18 +23,19 @@
                 <a href="index.html" rel="canonical" hreflang="en">PCSGuide</a>
             </div>
             <div id="div_form">
-                <form action="pesquisa.php" method="get">
-                    <label for="isearch">
+                <form method="get" aria-label="Search movies" id="searchMovie">
+                    <label for="isearch"> <!--action="pesquisa.php"-->
                         <span class="material-icons">search</span>
                     </label>
-                    <input type="search" id="isearch" name="search" minlength="1" placeholder="Search movie">
+                    <input type="search" id="isearch" name="search" minlength="1" placeholder="Search movie" required>
+                    <ul id="suggestions"></ul>
                 </form>
             </div>
-        </div>
-        <div id="header_right">
-            <div id="login">Login</div>
-            <div id="downloadApp">App <span class="material-icons">download</span></div>
-        </div>
+        </nav>
+        <nav id="header_right">
+            <button id="login">Login</button>
+            <button id="downloadApp">App <span class="material-icons">download</span></button>
+        </nav>
     </header>
     <!---------------------------------------- MENU ----------------------------------------->
     <nav class="menu" id="menu">
@@ -46,94 +48,93 @@
         <a href="#">Logout</a>
     </nav>
     <div class="overlay blackBackGround" id="overlay"></div>
-    <br>
-    <!---------------------------------------- PAGE ----------------------------------------->
-    <div id="firstDiv" class="oddDiv">
-        <div class="titleDiv">
-            <h1>Featured Today</h1>
-        </div>
-        <div class="slider" style=" 
-            --width: 180px;
-            --height: 270px;
-            --quantity: 6;
-            ">
-            <button class="prev-btn" aria-label="Previous">
-                <span class="material-icons">chevron_left</span>
-            </button>
-            <div class="list">
-                <a href="movieid01.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 1"><img src="images/poster1.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid02.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 2"><img src="images/poster2.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid03.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 3"><img src="images/poster3.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid04.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 4"><img src="images/poster4.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid05.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 5"><img src="images/poster5.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid06.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 6"><img src="images/poster6.jpg" alt="Poster" class="poster"></div>
-                </a>
+    <!---------------------------------------- MAIN PAGE ----------------------------------------->
+    <main>
+        <div id="firstDiv" class="oddDiv">
+            <div class="titleDiv">
+                <h1>Featured Today</h1>
             </div>
-            <button class="next-btn" aria-label="Next">
-                <span class="material-icons">chevron_right</span>
-            </button>
-        </div>
-    </div>
-    
-    <div id="secondDiv" class="evenDiv">
-        <div class="titleDiv">
-            <h1>Last from Marvel</h1>
-        </div>
-        <div class="videoDiv">
-            <iframe src="https://www.youtube.com/embed/1pHDWnXmK7Y?si=WJfYVmDruSh7Vz5W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-    </div>
-    
-    <div id="thirdDiv" class="oddDiv">
-        <div class="titleDiv">
-            <h1>Top Rated</h1>
-        </div>
-        <div class="slider" style=" 
-            --width: 180px;
-            --height: 270px;
-            --quantity: 6;
-            ">
-            <button class="prev-btn" aria-label="Previous">
-                <span class="material-icons">chevron_left</span>
-            </button>
-            <div class="list">
-                <a href="movieid01.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 1"><img src="images/poster1.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid02.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 2"><img src="images/poster2.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid03.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 3"><img src="images/poster3.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid04.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 4"><img src="images/poster4.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid05.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 5"><img src="images/poster5.jpg" alt="Poster" class="poster"></div>
-                </a>
-                <a href="movieid06.html" rel="next" hreflang="en">
-                    <div class="item" style="--position: 6"><img src="images/poster6.jpg" alt="Poster" class="poster"></div>
-                </a>
+            <div class="slider" style="
+                --width: 180px;
+                --height: 270px;
+                --quantity: 6;
+                ">
+                <button class="prev-btn" aria-label="Previous">
+                    <span class="material-icons">chevron_left</span>
+                </button>
+                <div class="list">
+                    <a href="movieid01.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 1"><img src="images/poster1.jpg" alt="Poster" class="poster" loading="lazy"></div><!--Alterar 'alt' quando eu conseguir já colocar o nome do filme explícito-->
+                    </a>
+                    <a href="movieid02.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 2"><img src="images/poster2.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid03.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 3"><img src="images/poster3.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid04.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 4"><img src="images/poster4.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid05.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 5"><img src="images/poster5.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid06.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 6"><img src="images/poster6.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                </div>
+                <button class="next-btn" aria-label="Next">
+                    <span class="material-icons">chevron_right</span>
+                </button>
             </div>
-            <button class="next-btn" aria-label="Next">
-                <span class="material-icons">chevron_right</span>
-            </button>
         </div>
-    </div>
-    
-    
+        
+        <div id="secondDiv" class="evenDiv">
+            <div class="titleDiv">
+                <h1>Last from Marvel</h1>
+            </div>
+            <div class="videoDiv">
+                <iframe loading="lazy" src="https://www.youtube.com/embed/1pHDWnXmK7Y?si=WJfYVmDruSh7Vz5W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <div id="thirdDiv" class="oddDiv">
+            <div class="titleDiv">
+                <h1>Top Rated</h1>
+            </div>
+            <div class="slider" style="
+                --width: 180px;
+                --height: 270px;
+                --quantity: 6;
+                ">
+                <button class="prev-btn" aria-label="Previous">
+                    <span class="material-icons">chevron_left</span>
+                </button>
+                <div class="list">
+                    <a href="movieid01.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 1"><img src="images/poster1.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid02.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 2"><img src="images/poster2.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid03.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 3"><img src="images/poster3.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid04.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 4"><img src="images/poster4.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid05.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 5"><img src="images/poster5.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                    <a href="movieid06.html" rel="next" hreflang="en">
+                        <div class="item" style="--position: 6"><img src="images/poster6.jpg" alt="Poster" class="poster" loading="lazy"></div>
+                    </a>
+                </div>
+                <button class="next-btn" aria-label="Next">
+                    <span class="material-icons">chevron_right</span>
+                </button>
+            </div>
+        </div>
+    </main>
     <!---------------------------------------- FOOTER ----------------------------------------->
     <footer>
         <div class="footer-content">
@@ -158,7 +159,7 @@
     
             <div class="footer-section">
                 <h3>Download the App</h3>
-                <button id="footer-download-playstore">
+                <button id="footer-download-playstore" aria-label="Download on Play Store">
                     <span class="material-icons">download</span> Play Store
                 </button>
                 <br>
@@ -177,7 +178,8 @@
             <p>Not affiliated with Marvel, DC or other studios.</p>
         </div>
     </footer>
-    <script src="general.js"></script>
-    <script src="home.js"></script>
+    <script defer src="general.js"></script>
+    <script src="searchMovie.js" defer></script>
+    <script defer src="home.js"></script>
 </body>
 </html>

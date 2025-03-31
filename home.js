@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!this.isDragging) return;
             const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
             const moveX = this.startX - x;
-            this.list.scrollLeft = this.scrollX + moveX;
+            const offset = -this.currentIndex * this.items[0].offsetWidth - moveX;
+            this.list.style.transform = `translateX(${offset}px)`;
         }
 
         endDrag() {
