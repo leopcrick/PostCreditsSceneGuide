@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCSGuide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_movies.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!---------------------------------------- HEADER ----------------------------------------->
+    <header class="header">
+        <div id="header_left">
+            <div class="menu_icon" id="menu_icon">
+                <span class="material-icons" id="menuSymbol">menu</span>
+                <span class="material-icons" id="closeSymbol">close</span>
+            </div>
+            <div id="logo">
+                <!-- <img src="images/logo-removebg-preview.png" alt="Logo do Site"> -->
+                <a href="index.html" rel="canonical" hreflang="en">PCSGuide</a>
+            </div>
+            <div id="div_form">
+                <form action="pesquisa.php" method="get">
+                    <label for="isearch">
+                        <span class="material-icons">search</span>
+                    </label>
+                    <input type="search" id="isearch" name="search" minlength="1" placeholder="Search movie">
+                </form>
+            </div>
+        </div>
+        <div id="header_right">
+            <div id="login">Login</div>
+            <div id="downloadApp">App <span class="material-icons">download</span></div>
+        </div>
+    </header>
+    <!---------------------------------------- MENU ----------------------------------------->
+    <nav class="menu" id="menu">
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Dark / Light</a>
+        <a href="#">Contact</a>
+        <a href="#">Language</a>
+        <a href="#">About</a>
+        <a href="#">Logout</a>
+    </nav>
+    <div class="overlay blackBackGround" id="overlay"></div>
+    <!---------------------------------------- PAGE ----------------------------------------->
+    <div id="sup">
+        <img src="images/poster1.jpg" alt="Poster do Filme" id="poster">
+        <div id="infos">
+            <h1 id="title">Vingadores: Ultimato</h1>
+            <p id="year">2018</p>
+            <h2>Number of scenes:</h2>
+            <p id="scenes">5</p>
+            <h2>Score:</h2>
+            <p id="score">5</p>
+        </div>
+    </div>
+    <div>
+        <h2 id="antispoiler">Show Descriptions</h2>
+        <div id="div_description">
+            <h2>Descriptions:</h2>
+            <hr>
+            <div class="comments">
+                <img src="images/newUser.png" alt="Profile Picture" id="profilePicture">
+                <div>
+                    <p class="username">@OChupaCu</p>
+                    <pre id="description">"Depois de 7 anos, a Marvel finalmente nos dá o barulho mais satisfatório da história: o clink do martelo do Cap no passado. E olha que nem foi o Mjolnir que quebrou o YouTube, foi o próprio Chris Evans quebrando a internet ao sair do cargo. 😭🇺🇸 #CapDesisteDoEscudo" </pre>
+                    <div class="interactions">
+                        <span class="material-icons thumb_up">thumb_up</span>
+                        <span class="likesCount">7</span>
+                        <span class="material-icons thumb_down">thumb_down</span>
+                        <span class="dislikesCount">2</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="comments">
+                <img src="images/newUser.png" alt="Profile Picture" id="profilePicture">
+                <div>
+                    <p class="username">@VascoEhPedagogia</p>
+                    <pre id="description">"Sam: 'Eu virei Capitão América agora?'
+                        Bucky: 'Sim.'
+                        Sam: 'Mas eu não tomei o soro do super-soldado, não tenho escudo indestrutível e mal sei lutar contra um soldado comum...'
+                        Bucky: 'Bem-vindo ao MCU, amigo. #FalCãoVoarÉPouco" </pre>
+                    <div class="interactions">
+                        <span class="material-icons thumb_up">thumb_up</span>
+                        <span class="likesCount">6</span>
+                        <span class="material-icons thumb_down">thumb_down</span>
+                        <span class="dislikesCount">2</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="comments">
+                <img src="images/newUser.png" alt="Profile Picture" id="profilePicture">
+                <div>
+                    <p class="username">@SombrasDaMeiaNoite</p>
+                    <pre id="description">"Marvel: coloca uma cena pós-créditos sem som, sem personagens, sem nada
+                        Fãs: chocados, emocionados, aplaudindo de pé
+                        DC: tenta fazer uma cena épica com 20 personagens
+                        Fãs da DC: '... cadê o pós-créditos?' #VingadoresGênios" </pre>
+                    <div class="interactions">
+                        <span class="material-icons thumb_up">thumb_up</span>
+                        <span class="likesCount">4</span>
+                        <span class="material-icons thumb_down">thumb_down</span>
+                        <span class="dislikesCount">1</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="comments">
+                <img src="images/newUser.png" alt="Profile Picture" id="profilePicture">
+                <div>
+                    <p class="username">@FernandoECatuaba</p>
+                    <pre id="description">"Thanos no Vingadores 3: 'Eu sou inevitável.'
+                        Thanos no Vingadores 4: 'Perdi meus exércitos, minha filha, meu queixo e agora até minha existência.'
+                        Tony: 'E ainda perdeu pra um homem com uma manopla de brinquedo.' #ThanosDemissão" </pre>
+                    <div class="interactions">
+                        <span class="material-icons thumb_up">thumb_up</span>
+                        <span class="likesCount">2</span>
+                        <span class="material-icons thumb_down">thumb_down</span>
+                        <span class="dislikesCount">0</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+    <script src="general.js"></script>
+    <script src="movies.js"></script>
+</body>
+</html>
