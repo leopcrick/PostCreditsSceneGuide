@@ -36,29 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.move(-1);
                 });
             }
-
+        
             if (this.nextBtn) {
                 this.nextBtn.addEventListener('click', () => {
                     this.pause();
                     this.move(1);
                 });
             }
-
-            this.slider.addEventListener('mouseenter', () => {
-                this.pause();
-            });
-
-            this.slider.addEventListener('mouseleave', () => {
-                this.start();
-            });
-
-            this.list.addEventListener('mousedown', (e) => this.startDrag(e));
-            this.list.addEventListener('touchstart', (e) => this.startDrag(e), { passive: true });
-            this.list.addEventListener('mousemove', (e) => this.dragMove(e));
-            this.list.addEventListener('touchmove', (e) => this.dragMove(e), { passive: true });
-            this.list.addEventListener('mouseup', () => this.endDrag());
-            this.list.addEventListener('mouseleave', () => this.endDrag());
-            this.list.addEventListener('touchend', () => this.endDrag());
+        
+            this.slider.addEventListener('mouseenter', () => this.pause());
+            this.slider.addEventListener('mouseleave', () => this.start());
+        
+            // Ativa o arraste apenas em dispositivos móveis
+            if ('ontouchstart' in window || navigator.maxTouchPoints) {
+                this.list.addEventListener('touchstart', (e) => this.startDrag(e), { passive: true });
+                this.list.addEventListener('touchmove', (e) => this.dragMove(e), { passive: true });
+                this.list.addEventListener('touchend', () => this.endDrag());
+            }
         }
 
         startDrag(e) {
@@ -72,8 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!this.isDragging) return;
             const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
             const moveX = this.startX - x;
-            const offset = -this.currentIndex * this.items[0].offsetWidth - moveX;
-            this.list.style.transform = `translateX(${offset}px)`;
+            this.list.scrollLeft = this.scrollX + moveX; // Usando scrollLeft ao invés de transform
         }
 
         endDrag() {
